@@ -43,9 +43,6 @@ def flow_meter(PORT,ID,loop):
         FlowMeter7 = master.execute(ID, cst.READ_HOLDING_REGISTERS, 34, 2)
         RT_FlowTemp2 = round(float_num(FlowMeter7[0], FlowMeter7[1]),2)
         
-        #RT_Flow = master.execute(ID, cst.READ_HOLDING_REGISTERS, 34, 2)
-        #RT_Flowdata = round(float_num(RT_Flow[0], RT_Flow[1]),2)
-        
         
         Temp1 = master.execute(ID, cst.READ_HOLDING_REGISTERS, 32, 2)
         Temp11 = round(float_num(Temp1[0], Temp1[1]),2)
