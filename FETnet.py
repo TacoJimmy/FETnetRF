@@ -191,7 +191,6 @@ def FlowMeter_Publish_Production(Meter_data,access_token,timestamp):
         time.sleep(2)
         #print ("Production= " + data03)
         #print ("Production= " + mod_payload)
-        
     except:
         pass
 
@@ -206,16 +205,19 @@ def do_job():
         MutiPowerMeter5 = Mutiloop_PM.Read_MutiPowerMeter('/dev/ttyS3',1,1)
         MutiPowerMeter6 = Mutiloop_PM.Read_MutiPowerMeter('/dev/ttyS3',1,2)
         MutiPowerMeter7 = Mutiloop_PM.Read_MutiPowerMeter('/dev/ttyS3',1,3)
-
+        print(MutiPowerMeter4)
+        print(MutiPowerMeter5)
 
         con_mqtt = Connect_Mqtt_Pro()
         if con_mqtt == 1:
             FET_Publish_Product(MutiPowerMeter4,"9246b6a6a699481e962e67c591641f09",timestamp)
+            print('FET_Publish')
             FET_Publish_Product(MutiPowerMeter5,"4abe1031ab2641c78e39f86fad3e161f",timestamp)
             FET_Publish_Product(MutiPowerMeter6,"6feb2296bf8b42229571c5f4567dd7a8",timestamp)
             FET_Publish_Product(MutiPowerMeter7,"9988be5321b94e2ca00397708980d4b4",timestamp)
         else:
             MQTT_Connect_pro()
+            print('error')
             time.sleep(2)
 
 
